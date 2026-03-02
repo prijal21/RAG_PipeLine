@@ -25,3 +25,15 @@ I also built a hybrid retriever that combines dense vector search with BM25 keyw
 
 ## Stack
 Python, LlamaIndex, PyMuPDF, Gemini 2.0 Flash, BM25, HuggingFace Sentence Transformers, Gradio
+
+## How to run it
+
+All notebooks run on Google Colab, no local setup needed.
+
+1. Open any notebook from this repo directly in Colab
+2. Go to the key icon on the left sidebar in Colab and add a secret named `GOOGLE_API_KEY` with your Gemini API key
+3. Run the cells top to bottom
+
+Start with `Build and Optimize a RAG Pipeline for Document Retrieval.ipynb` if you want to see the full pipeline end to end. Open `Chatbot.ipynb` if you just want to try the chatbot interface.
+
+You can get a free Gemini API key from [Google AI Studio](https://aistudio.google.com).
