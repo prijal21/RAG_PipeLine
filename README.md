@@ -1,39 +1,35 @@
-# RAG Pipeline for Document Retrieval
+# 🔍 RAG Pipeline for Document Retrieval
 
-This project is about building a RAG pipeline that can answer questions from financial and legal PDF documents. I started with a basic setup and kept improving it by trying different retrieval methods.
+So this project started because I wanted to actually understand how RAG works, not just use a library that does it for me. I picked financial and legal PDFs as the test documents because they're dense and tricky — good stress test.
 
-## What I built
+## 🛠️ What I built
 
-The core pipeline uses LlamaIndex to index PDF documents and Gemini 2.0 Flash to generate answers. From there I experimented with a few things to improve retrieval quality.
+The core is a pipeline using LlamaIndex + Gemini 2.0 Flash that reads PDFs and answers questions from them. But I kept pushing it further.
 
-One thing I tried was query expansion, where the LLM generates a few different versions of the same question before searching. This helped a lot with vague or domain-specific queries that would otherwise miss relevant chunks.
+One thing I tried was **query expansion** — basically asking the LLM to rewrite your question in 3-4 different ways before searching. It sounds simple but it made a huge difference for vague or domain-heavy questions.
 
-I also built a hybrid retriever that combines dense vector search with BM25 keyword search, then merges the results using Reciprocal Rank Fusion. On top of that I added a cross-encoder reranker to score and reorder the top results before passing them to the LLM.
+Then I built a **hybrid retriever** that combines two search methods: dense vector search (semantic) and BM25 (keyword). The results get merged using Reciprocal Rank Fusion. After that, a cross-encoder reranks the top results before anything goes to the LLM. More steps, but better answers.
 
-## Other things in this folder
+## 📂 Notebooks
 
-- Experiments comparing different retrieval setups at various top-K values
-- A small Gradio chatbot that wraps the pipeline for interactive use
+- `Build and Optimize a RAG Pipeline for Document Retrieval.ipynb` — start here
+- `Different RAG PipeLine.ipynb` — comparing different approaches side by side
+- `Query Expansion & Retrieval Methods for Query.ipynb` — the query expansion experiments
+- `Experimenting Advanced PDF Retrieval & Optimization with LlamaIndex.ipynb` — hybrid retrieval + reranking
+- `Chatbot.ipynb` — a Gradio chatbot that wraps the whole pipeline
 
-## Notebooks
+## 🚀 Try it yourself
 
-- `Build and Optimize a RAG Pipeline for Document Retrieval.ipynb`
-- `Different RAG PipeLine.ipynb`
-- `Query Expansion & Retrieval Methods for Query.ipynb`
-- `Experimenting Advanced PDF Retrieval & Optimization with LlamaIndex.ipynb`
-- `Chatbot.ipynb`
+Everything runs on Google Colab, nothing to install.
 
-## Stack
-Python, LlamaIndex, PyMuPDF, Gemini 2.0 Flash, BM25, HuggingFace Sentence Transformers, Gradio
+1. Open any notebook in Colab
+2. Click the 🔑 key icon on the left sidebar → add a secret called `GOOGLE_API_KEY`
+3. Paste your Gemini API key there
+4. Run all cells top to bottom
 
-## How to run it
+> Get a free Gemini API key at [aistudio.google.com](https://aistudio.google.com)
 
-All notebooks run on Google Colab, no local setup needed.
+Start with `Build and Optimize...` for the full pipeline or jump straight to `Chatbot.ipynb` if you just want to try the chat interface.
 
-1. Open any notebook from this repo directly in Colab
-2. Go to the key icon on the left sidebar in Colab and add a secret named `GOOGLE_API_KEY` with your Gemini API key
-3. Run the cells top to bottom
-
-Start with `Build and Optimize a RAG Pipeline for Document Retrieval.ipynb` if you want to see the full pipeline end to end. Open `Chatbot.ipynb` if you just want to try the chatbot interface.
-
-You can get a free Gemini API key from [Google AI Studio](https://aistudio.google.com).
+## ⚙️ Stack
+Python · LlamaIndex · PyMuPDF · Gemini 2.0 Flash · BM25 · HuggingFace · Gradio
