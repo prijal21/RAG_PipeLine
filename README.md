@@ -29,13 +29,13 @@ Click any badge below to open that notebook in Google Colab and run it right awa
 
 ## How to run
 
-1. Click any badge above to open it in Colab
-2. In Colab, click the key icon on the left sidebar and add a secret named `GOOGLE_API_KEY` with your Gemini API key
-3. Run all cells from top to bottom
+1. Click any badge above to open the notebook in Colab
+2. Click the key icon on the left sidebar in Colab, add a secret named `GOOGLE_API_KEY` and paste your Gemini API key
+3. Run all cells from top to bottom — the sample PDF files will download automatically, no upload needed
 
-You can get a free Gemini API key at [aistudio.google.com](https://aistudio.google.com).
+Free Gemini API key at [aistudio.google.com](https://aistudio.google.com). Takes about a minute to set up.
 
-Start with `Build and Optimize a RAG Pipeline` to see the full pipeline, or open `Chatbot.ipynb` if you just want to try the chat interface directly.
+Start with `Build and Optimize a RAG Pipeline` to see the full pipeline, or go straight to `Chatbot.ipynb` to try the chat interface.
 
 ## Stack
 Python, LlamaIndex, PyMuPDF, Gemini 2.0 Flash, BM25, HuggingFace Sentence Transformers, Gradio
